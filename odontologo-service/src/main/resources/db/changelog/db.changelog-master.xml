@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.20.xsd">
+
+    <changeSet id="1" author="alumno">
+        <createTable tableName="odontologos">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="rut" type="varchar(12)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="nombre" type="varchar(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="especialidad" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="2" author="alumno">
+        <insert tableName="odontologos"><column name="rut" value="12.222.222-2"/><column name="nombre" value="Dr. Alejandro Silva"/><column name="especialidad" value="General"/></insert>
+        <insert tableName="odontologos"><column name="rut" value="13.333.333-3"/><column name="nombre" value="Dra. Beatriz Tapia"/><column name="especialidad" value="Ortodoncia"/></insert>
+        <insert tableName="odontologos"><column name="rut" value="14.444.444-4"/><column name="nombre" value="Dr. Cristian Castro"/><column name="especialidad" value="Endodoncia"/></insert>
+        <insert tableName="odontologos"><column name="rut" value="15.555.555-5"/><column name="nombre" value="Dra. Diana Morales"/><column name="especialidad" value="Pediatria"/></insert>
+        <insert tableName="odontologos"><column name="rut" value="16.666.666-6"/><column name="nombre" value="Dr. Eduardo Fuentes"/><column name="especialidad" value="Maxilofacial"/></insert>
+        <insert tableName="odontologos"><column name="rut" value="17.777.777-7"/><column name="nombre" value="Dra. Fernanda Gomez"/><column name="especialidad" value="Periodoncia"/></insert>
+        <insert tableName="odontologos"><column name="rut" value="18.888.888-8"/><column name="nombre" value="Dr. Gonzalo Reyes"/><column name="especialidad" value="General"/></insert>
+    </changeSet>
+</databaseChangeLog>

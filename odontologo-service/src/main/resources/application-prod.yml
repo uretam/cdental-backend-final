@@ -1,0 +1,8 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: jdbc:mysql://db-odontologos:3306/db_odontologos
+    username: root
+    password: root
