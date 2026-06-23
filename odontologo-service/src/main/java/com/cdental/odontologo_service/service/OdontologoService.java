@@ -31,6 +31,39 @@ public class OdontologoService {
         return convertirADto(o);
     }
 
+    public OdontologoDTO crear(OdontologoDTO dto) {
+        logger.info("Registrando nuevo odontologo con RUT: {}", dto.getRut());
+        if (repository.findByRut(dto.getRut()).isPresent()) {
+            throw new OdontologoException("El odontologo con RUT " + dto.getRut() + " ya existe");
+        }
+        Odontologo o = new Odontologo();
+        o.setRut(dto.getRut());
+        o.setNombre(dto.getNombre());
+        o.setEspecialidad(dto.getEspecialidad());
+
+        Odontologo guardado = repository.save(o);
+        return convertirADto(guardado);
+    }
+
+    public OdontologoDTO actualizar(Long id, OdontologoDTO dto) {
+        logger.info("Modificando datos del odontologo con ID: {}", id);
+        Odontologo o = repository.findById(id)
+                .orElseThrow(() -> new OdontologoException("No se puede modificar. Odontologo no encontrado con ID: " + id));
+        
+        o.setNombre(dto.getNombre());
+        o.setEspecialidad(dto.getEspecialidad());
+
+        Odontologo actualizado = repository.save(o);
+        return convertirADto(actualizado);
+    }
+
+    public void eliminar(Long id) {
+        logger.info("Dando de baja al odontologo con ID: {}", id);
+        Odontologo o = repository.findById(id)
+                .orElseThrow(() -> new OdontologoException("No se puede eliminar. Odontologo no encontrado con ID: " + id));
+        repository.delete(o);
+    }
+
     private OdontologoDTO convertirADto(Odontologo o) {
         OdontologoDTO dto = new OdontologoDTO();
         dto.setId(o.getId());
