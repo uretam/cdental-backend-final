@@ -9,14 +9,24 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 public class Odontologo {
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    
     private String rut;
+    
     private String nombre;
-    private String specialty; // Mapeado como especialidad en la base de datos por consistencia con la rúbrica
+    
+    @Column(name = "especialidad") // ¡Aquí debe ir para que Hibernate lo valide en el campo!
+    private String specialty; 
 
-    @Column(name = "especialidad")
-    public String getEspecialidad() { return specialty; }
-    public void setEspecialidad(String especialidad) { this.specialty = especialidad; }
+    // Mantenemos estos métodos manuales para que la capa Service no falle al compilar
+    public String getEspecialidad() { 
+        return this.specialty; 
+    }
+    
+    public void setEspecialidad(String especialidad) { 
+        this.specialty = especialidad; 
+    }
 }
