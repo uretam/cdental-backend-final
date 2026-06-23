@@ -1,0 +1,100 @@
+version: '3.8'
+
+services:
+  db-auth:
+    image: mysql:8.0
+    container_name: db-auth
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: db_auth
+    ports:
+      - "33061:3306"
+    volumes:
+      - vol-auth:/var/lib/mysql
+
+  db-pacientes:
+    image: mysql:8.0
+    container_name: db-pacientes
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: db_pacientes
+    ports:
+      - "33062:3306"
+    volumes:
+      - vol-pacientes:/var/lib/mysql
+
+  db-odontologos:
+    image: mysql:8.0
+    container_name: db-odontologos
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: db_odontologos
+    ports:
+      - "33063:3306"
+    volumes:
+      - vol-odontologos:/var/lib/mysql
+
+  db-tratamientos:
+    image: mysql:8.0
+    container_name: db-tratamientos
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: db_tratamientos
+    ports:
+      - "33064:3306"
+    volumes:
+      - vol-tratamientos:/var/lib/mysql
+
+  db-citas:
+    image: mysql:8.0
+    container_name: db-citas
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: db_citas
+    ports:
+      - "33065:3306"
+    volumes:
+      - vol-citas:/var/lib/mysql
+
+  db-facturas:
+    image: mysql:8.0
+    container_name: db-facturas
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: db_facturas
+    ports:
+      - "33066:3306"
+    volumes:
+      - vol-facturas:/var/lib/mysql
+
+  db-historial:
+    image: mysql:8.0
+    container_name: db-historial
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: db_historial
+    ports:
+      - "33067:3306"
+    volumes:
+      - vol-historial:/var/lib/mysql
+
+  db-insumos:
+    image: mysql:8.0
+    container_name: db-insumos
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: db_insumos
+    ports:
+      - "33068:3306"
+    volumes:
+      - vol-insumos:/var/lib/mysql
+
+volumes:
+  vol-auth:
+  vol-pacientes:
+  vol-odontologos:
+  vol-tratamientos:
+  vol-citas:
+  vol-facturas:
+  vol-historial:
+  vol-insumos:
