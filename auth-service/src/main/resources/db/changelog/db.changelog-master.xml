@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.20.xsd">
+
+    <changeSet id="1" author="profesor-tutor">
+        <createTable tableName="usuarios">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="username" type="varchar(50)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="password" type="varchar(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="role" type="varchar(20)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="2" author="profesor-tutor">
+        <insert tableName="usuarios"><column name="username" value="admin"/><column name="password" value="admin123"/><column name="role" value="ADMIN"/></insert>
+        <insert tableName="usuarios"><column name="username" value="dentista1"/><column name="password" value="pass123"/><column name="role" value="ODONTOLOGO"/></insert>
+        <insert tableName="usuarios"><column name="username" value="dentista2"/><column name="password" value="pass123"/><column name="role" value="ODONTOLOGO"/></insert>
+        <insert tableName="usuarios"><column name="username" value="recepcion1"/><column name="password" value="pass123"/><column name="role" value="RECEPCION"/></insert>
+        <insert tableName="usuarios"><column name="username" value="recepcion2"/><column name="password" value="pass123"/><column name="role" value="RECEPCION"/></insert>
+        <insert tableName="usuarios"><column name="username" value="auxiliar1"/><column name="password" value="pass123"/><column name="role" value="AUXILIAR"/></insert>
+        <insert tableName="usuarios"><column name="username" value="auxiliar2"/><column name="password" value="pass123"/><column name="role" value="AUXILIAR"/></insert>
+    </changeSet>
+</databaseChangeLog>
