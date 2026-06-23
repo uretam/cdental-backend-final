@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.20.xsd">
+
+    <changeSet id="1" author="alumno">
+        <createTable tableName="pacientes">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="rut" type="varchar(12)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="nombre" type="varchar(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="correo" type="varchar(100)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="2" author="alumno">
+        <insert tableName="pacientes"><column name="rut" value="11.111.111-1"/><column name="nombre" value="Juan Perez"/><column name="correo" value="juan@mail.com"/></insert>
+        <insert tableName="pacientes"><column name="rut" value="22.222.222-2"/><column name="nombre" value="Maria Soto"/><column name="correo" value="maria@mail.com"/></insert>
+        <insert tableName="pacientes"><column name="rut" value="33.333.333-3"/><column name="nombre" value="Carlos Ruiz"/><column name="correo" value="carlos@mail.com"/></insert>
+        <insert tableName="pacientes"><column name="rut" value="44.444.444-4"/><column name="nombre" value="Ana Gomez"/><column name="correo" value="ana@mail.com"/></insert>
+        <insert tableName="pacientes"><column name="rut" value="55.555.555-5"/><column name="nombre" value="Luis Jara"/><column name="correo" value="luis@mail.com"/></insert>
+        <insert tableName="pacientes"><column name="rut" value="66.666.666-6"/><column name="nombre" value="Laura Vega"/><column name="correo" value="laura@mail.com"/></insert>
+        <insert tableName="pacientes"><column name="rut" value="77.777.777-7"/><column name="nombre" value="Pedro Arce"/><column name="correo" value="pedro@mail.com"/></insert>
+    </changeSet>
+</databaseChangeLog>
