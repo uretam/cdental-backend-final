@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.20.xsd">
+
+    <changeSet id="1" author="alumno">
+        <createTable tableName="citas">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="paciente_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="odontologo_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="fecha_hora" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="motivo" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="2" author="alumno">
+        <insert tableName="citas">
+            <column name="paciente_id" valueNumeric="1"/>
+            <column name="odontologo_id" valueNumeric="1"/>
+            <column name="fecha_hora" valueDate="2026-10-15T10:00:00"/>
+            <column name="motivo" value="Limpieza dental general y evaluacion"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>
