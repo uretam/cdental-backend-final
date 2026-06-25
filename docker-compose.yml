@@ -1,6 +1,9 @@
 version: '3.8'
 
 services:
+  # ==========================================
+  # BASES DE DATOS (Mantenemos tus puertos externos)
+  # ==========================================
   db-auth:
     image: mysql:8.0
     container_name: db-auth
@@ -88,6 +91,88 @@ services:
       - "33068:3306"
     volumes:
       - vol-insumos:/var/lib/mysql
+
+  # ==========================================
+  # MICROSERVICIOS CORE (Compilan con sus Dockerfiles)
+  # ==========================================
+  auth-service:
+    build: ./auth-service
+    container_name: auth-service
+    ports:
+      - "8081:8081"
+    depends_on:
+      - db-auth
+
+  paciente-service:
+    build: ./paciente-service
+    container_name: paciente-service
+    ports:
+      - "8082:8082"
+    depends_on:
+      - db-pacientes
+
+  odontologo-service:
+    build: ./odontologo-service
+    container_name: odontologo-service
+    ports:
+      - "8083:8083"
+    depends_on:
+      - db-odontologos
+
+  tratamientos-service:
+    build: ./tratamientos-service
+    container_name: tratamientos-service
+    ports:
+      - "8084:8084"
+    depends_on:
+      - db-tratamientos
+
+  citas-service:
+    build: ./citas-service
+    container_name: citas-service
+    ports:
+      - "8085:8085"
+    depends_on:
+      - db-citas
+
+  pagos-service:
+    build: ./pagos-service
+    container_name: pagos-service
+    ports:
+      - "8086:8086"
+    depends_on:
+      - db-pagos
+
+  historial-service:
+    build: ./historial-service
+    container_name: historial-service
+    ports:
+      - "8087:8087"
+    depends_on:
+      - db-historial
+
+  insumos-service:
+    build: ./insumos-service
+    container_name: insumos-service
+    ports:
+      - "8088:8088"
+    depends_on:
+      - db-insumos
+
+  api-gateway:
+    build: ./api-gateway
+    container_name: api-gateway
+    ports:
+      - "8080:8080"
+    depends_on:
+      - auth-service
+      - paciente-service
+      - odontologo-service
+      - tratamientos-service
+      - citas-service
+      - pagos-service
+      - historial-service
+      - insumos-service
 
 volumes:
   vol-auth:
