@@ -1,7 +1,16 @@
 package com.cdental.tratamientos_service.dto;
 
-import jakarta.validation.constraints.*;
-import lombok.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
+import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.Min;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+
 import org.springframework.hateoas.RepresentationModel;
 
 import java.math.BigDecimal;
@@ -11,7 +20,6 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @AllArgsConstructor
 public class TratamientoDTO extends RepresentationModel<TratamientoDTO> {
-
     private Long id;
 
     @NotBlank(message = "El nombre del tratamiento no puede estar vacío")

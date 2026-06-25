@@ -4,6 +4,7 @@ import com.cdental.historial_service.dto.HistorialDTO;
 import com.cdental.historial_service.exception.HistorialException;
 import com.cdental.historial_service.model.Historial;
 import com.cdental.historial_service.repository.HistorialRepository;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -35,7 +36,15 @@ public class HistorialService {
 
     public HistorialDTO crear(HistorialDTO dto) {
         logger.info("Iniciando creación de un registro en el historial clínico");
-        Historial historial = convertirAEntidad(dto);
+
+        Historial historial = new Historial();
+        historial.setPacienteId(dto.getPacienteId());
+        historial.setCitaId(dto.getCitaId());
+        historial.setTratamientoId(dto.getTratamientoId());
+        historial.setObservaciones(dto.getObservaciones());
+        historial.setFechaRegistro(dto.getFechaRegistro());
+        historial.setActivo(dto.getActivo());
+
         return convertirADto(repository.save(historial));
     }
 
@@ -77,17 +86,5 @@ public class HistorialService {
                 entidad.getFechaRegistro(),
                 entidad.getActivo()
         );
-    }
-
-    private Historial convertirAEntidad(HistorialDTO dto) {
-        Historial h = new Historial();
-        h.setPacienteId(dto.getPacienteId());
-        h.setCitaId(dto.getCitaId());
-        h.setTratamientoId(dto.getTratamientoId());
-        h.setObservaciones(dto.getObservaciones());
-        if (dto.getActivo() != null) {
-            h.setActivo(dto.getActivo());
-        }
-        return h;
     }
 }

@@ -2,6 +2,7 @@ package com.cdental.odontologo_service.config;
 
 import com.cdental.odontologo_service.model.Odontologo;
 import com.cdental.odontologo_service.repository.OdontologoRepository;
+
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 

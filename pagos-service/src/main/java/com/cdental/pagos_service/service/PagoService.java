@@ -4,8 +4,10 @@ import com.cdental.pagos_service.dto.PagoDTO;
 import com.cdental.pagos_service.exception.PagoException;
 import com.cdental.pagos_service.model.Pago;
 import com.cdental.pagos_service.repository.PagoRepository;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -35,7 +37,14 @@ public class PagoService {
 
     public PagoDTO crear(PagoDTO dto) {
         logger.info("Iniciando el registro y procesamiento de un nuevo pago clínico");
-        Pago pago = convertirAEntidad(dto);
+        Pago pago = new Pago();
+        pago.setHistorialId(dto.getHistorialId());
+        pago.setMonto(dto.getMonto());
+        pago.setMetodoPago(dto.getMetodoPago());
+        if (dto.getCompletado() != null) {
+            pago.setCompletado(dto.getCompletado());
+        }
+
         return convertirADto(repository.save(pago));
     }
 
@@ -49,6 +58,7 @@ public class PagoService {
         pago.setMonto(dto.getMonto());
         pago.setMetodoPago(dto.getMetodoPago());
         pago.setFechaPago(dto.getFechaPago());
+
         if (dto.getCompletado() != null) {
             pago.setCompletado(dto.getCompletado());
         }
@@ -72,16 +82,5 @@ public class PagoService {
         dto.setFechaPago(entidad.getFechaPago());
         dto.setCompletado(entidad.getCompletado());
         return dto;
-    }
-
-    private Pago convertirAEntidad(PagoDTO dto) {
-        Pago p = new Pago();
-        p.setHistorialId(dto.getHistorialId());
-        p.setMonto(dto.getMonto());
-        p.setMetodoPago(dto.getMetodoPago());
-        if (dto.getCompletado() != null) {
-            p.setCompletado(dto.getCompletado());
-        }
-        return p;
     }
 }

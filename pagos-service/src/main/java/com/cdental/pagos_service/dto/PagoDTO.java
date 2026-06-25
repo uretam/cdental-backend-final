@@ -1,7 +1,14 @@
 package com.cdental.pagos_service.dto;
 
-import jakarta.validation.constraints.*;
-import lombok.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
+
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
+
 import org.springframework.hateoas.RepresentationModel;
 import java.time.LocalDateTime;
 

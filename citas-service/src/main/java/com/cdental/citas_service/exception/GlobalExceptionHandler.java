@@ -10,7 +10,6 @@ import java.util.Map;
 
 @ControllerAdvice
 public class GlobalExceptionHandler {
-
     @ExceptionHandler(CitaException.class)
     public ResponseEntity<Map<String, String>> handleCitaException(CitaException ex) {
         Map<String, String> response = new HashMap<>();

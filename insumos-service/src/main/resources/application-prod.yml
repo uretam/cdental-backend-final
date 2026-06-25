@@ -1,0 +1,8 @@
+server:
+  port: 8089
+
+spring:
+  datasource:
+    url: jdbc:mysql://db-insumos:3306/db_insumos
+    username: root
+    password: root

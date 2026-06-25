@@ -4,8 +4,10 @@ import com.cdental.tratamientos_service.dto.TratamientoDTO;
 import com.cdental.tratamientos_service.exception.TratamientoException;
 import com.cdental.tratamientos_service.model.Tratamiento;
 import com.cdental.tratamientos_service.repository.TratamientoRepository;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -35,7 +37,13 @@ public class TratamientoService {
 
     public TratamientoDTO crear(TratamientoDTO dto) {
         logger.info("Registrando nuevo tratamiento con nombre: {}", dto.getNombre());
-        Tratamiento tratamiento = convertirAEntidad(dto);
+        Tratamiento tratamiento = new Tratamiento();
+        tratamiento.setNombre(dto.getNombre());
+        tratamiento.setDescripcion(dto.getDescripcion());
+        tratamiento.setPrecioBase(dto.getPrecioBase());
+        tratamiento.setDuracionEstimadaMinutos(dto.getDuracionEstimadaMinutos());
+        tratamiento.setActivo(dto.getActivo() == null || dto.getActivo());
+        
         return convertirADto(repository.save(tratamiento));
     }
 
@@ -69,15 +77,5 @@ public class TratamientoService {
                 entidad.getDuracionEstimadaMinutos(),
                 entidad.getActivo()
         );
-    }
-
-    private Tratamiento convertirAEntidad(TratamientoDTO dto) {
-        Tratamiento t = new Tratamiento();
-        t.setNombre(dto.getNombre());
-        t.setDescripcion(dto.getDescripcion());
-        t.setPrecioBase(dto.getPrecioBase());
-        t.setDuracionEstimadaMinutos(dto.getDuracionEstimadaMinutos());
-        t.setActivo(dto.getActivo() == null || dto.getActivo());
-        return t;
     }
 }

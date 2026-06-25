@@ -2,6 +2,7 @@ package com.cdental.tratamientos_service.config;
 
 import com.cdental.tratamientos_service.model.Tratamiento;
 import com.cdental.tratamientos_service.repository.TratamientoRepository;
+
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -19,7 +20,13 @@ public class DataLoader implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         if (repository.count() <= 2) {
-            Tratamiento t3 = new Tratamiento(null, "Endodoncia Unirradicular", "Conducto en pieza de una raíz.", new BigDecimal("120000.00"), 60, true);
+            Tratamiento t3 = new Tratamiento();
+
+            t3.setNombre("Endodoncia Unirradicular");
+            t3.setDescripcion("Conducto en pieza de una raíz.");
+            t3.setPrecioBase(new BigDecimal("120000.00"));
+            t3.setDuracionEstimadaMinutos(60);
+            t3.setActivo(true);
             repository.save(t3);
         }
     }

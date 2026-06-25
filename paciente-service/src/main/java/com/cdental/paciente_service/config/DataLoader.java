@@ -2,6 +2,7 @@ package com.cdental.paciente_service.config;
 
 import com.cdental.paciente_service.model.Paciente;
 import com.cdental.paciente_service.repository.PacienteRepository;
+
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 

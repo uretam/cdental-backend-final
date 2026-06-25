@@ -2,6 +2,7 @@ package com.cdental.auth_service.config;
 
 import com.cdental.auth_service.model.Usuario;
 import com.cdental.auth_service.repository.UsuarioRepository;
+
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -15,7 +16,6 @@ public class DataLoader implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        // Si ya estan los 7 de Liquibase, agregamos los 3 restantes
         if (repository.count() <= 7) {
             Usuario u1 = new Usuario();
             u1.setUsername("paciente_user1");

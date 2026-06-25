@@ -2,7 +2,9 @@ package com.cdental.historial_service.controller;
 
 import com.cdental.historial_service.dto.HistorialDTO;
 import com.cdental.historial_service.service.HistorialService;
+
 import jakarta.validation.Valid;
+
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.http.HttpStatus;

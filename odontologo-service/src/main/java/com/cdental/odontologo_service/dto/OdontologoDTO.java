@@ -3,16 +3,17 @@ package com.cdental.odontologo_service.dto;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
+
 import lombok.Getter;
 import lombok.Setter;
 import lombok.EqualsAndHashCode;
+
 import org.springframework.hateoas.RepresentationModel;
 
 @Getter
 @Setter
 @EqualsAndHashCode(callSuper = false)
 public class OdontologoDTO extends RepresentationModel<OdontologoDTO> {
-    
     private Long id;
 
     @NotBlank(message = "El RUT es obligatorio")

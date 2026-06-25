@@ -3,15 +3,22 @@ package com.cdental.citas_service.dto;
 import jakarta.validation.constraints.FutureOrPresent;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
+
 import org.springframework.hateoas.RepresentationModel;
+
 import java.time.LocalDateTime;
 
 @Getter
 @Setter
 @EqualsAndHashCode(callSuper = false)
+@NoArgsConstructor
+@AllArgsConstructor
 public class CitaDTO extends RepresentationModel<CitaDTO> {
     
     private Long id;

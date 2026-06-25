@@ -1,9 +1,13 @@
 package com.cdental.auth_service.dto;
 
 import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.EqualsAndHashCode;
 
-@Getter // En DTOs de respuesta basta con Getter ya que son de solo lectura (inmutables)
+@Data
+@EqualsAndHashCode(callSuper = false)
+@NoArgsConstructor
 @AllArgsConstructor
 public class AuthResponseDTO {
     private String token;

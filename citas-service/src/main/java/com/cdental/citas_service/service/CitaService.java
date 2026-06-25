@@ -6,9 +6,11 @@ import com.cdental.citas_service.dto.CitaDTO;
 import com.cdental.citas_service.exception.CitaException;
 import com.cdental.citas_service.model.Cita;
 import com.cdental.citas_service.repository.CitaRepository;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
 import java.util.stream.Collectors;
 
