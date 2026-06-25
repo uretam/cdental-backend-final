@@ -44,20 +44,13 @@ public class OdontologoController {
     }
 
     @PostMapping
-    public ResponseEntity<EntityModel<OdontologoDTO>> crear(@Valid @RequestBody OdontologoDTO dto) {
-        OdontologoDTO nuevo = service.crear(dto);
-        return new ResponseEntity<>(EntityModel.of(nuevo,
-                linkTo(methodOn(OdontologoController.class).obtenerPorId(nuevo.getId())).withSelfRel(),
-                linkTo(methodOn(OdontologoController.class).obtenerTodos()).withRel("odontologos")), 
-                HttpStatus.CREATED);
+    public ResponseEntity<OdontologoDTO> crear(@Valid @RequestBody OdontologoDTO dto) {
+        return new ResponseEntity<>(service.crear(dto), HttpStatus.CREATED);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<EntityModel<OdontologoDTO>> actualizar(@PathVariable Long id, @Valid @RequestBody OdontologoDTO dto) {
-        OdontologoDTO modificado = service.actualizar(id, dto);
-        return ResponseEntity.ok(EntityModel.of(modificado,
-                linkTo(methodOn(OdontologoController.class).obtenerPorId(modificado.getId())).withSelfRel(),
-                linkTo(methodOn(OdontologoController.class).obtenerTodos()).withRel("odontologos")));
+    public ResponseEntity<OdontologoDTO> actualizar(@PathVariable Long id, @Valid @RequestBody OdontologoDTO dto) {
+        return ResponseEntity.ok(service.actualizar(id, dto));
     }
 
     @DeleteMapping("/{id}")

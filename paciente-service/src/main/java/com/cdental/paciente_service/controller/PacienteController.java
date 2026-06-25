@@ -44,33 +44,23 @@ public class PacienteController {
     }
 
     @GetMapping("/rut/{rut}")
-    public ResponseEntity<EntityModel<PacienteDTO>> obtenerPorRut(@PathVariable String rut) {
-        PacienteDTO dto = service.obtenerPorRut(rut);
-        return ResponseEntity.ok(EntityModel.of(dto,
-                linkTo(methodOn(PacienteController.class).obtenerPorRut(rut)).withSelfRel(),
-                linkTo(methodOn(PacienteController.class).obtenerTodos()).withRel("pacientes")));
+    public ResponseEntity<PacienteDTO> obtenerPorRut(@PathVariable String rut) {
+        return ResponseEntity.ok(service.obtenerPorRut(rut));
     }
 
     @PostMapping
-    public ResponseEntity<EntityModel<PacienteDTO>> crear(@Valid @RequestBody PacienteDTO dto) {
-        PacienteDTO nuevo = service.crear(dto);
-        return new ResponseEntity<>(EntityModel.of(nuevo,
-                linkTo(methodOn(PacienteController.class).obtenerPorId(nuevo.getId())).withSelfRel(),
-                linkTo(methodOn(PacienteController.class).obtenerTodos()).withRel("pacientes")), 
-                HttpStatus.CREATED);
+    public ResponseEntity<PacienteDTO> crear(@Valid @RequestBody PacienteDTO dto) {
+        return new ResponseEntity<>(service.crear(dto), HttpStatus.CREATED);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<EntityModel<PacienteDTO>> actualizar(@PathVariable Long id, @Valid @RequestBody PacienteDTO dto) {
-        PacienteDTO modificado = service.actualizar(id, dto);
-        return ResponseEntity.ok(EntityModel.of(modificado,
-                linkTo(methodOn(PacienteController.class).obtenerPorId(modificado.getId())).withSelfRel(),
-                linkTo(methodOn(PacienteController.class).obtenerTodos()).withRel("pacientes")));
+    public ResponseEntity<PacienteDTO> actualizar(@PathVariable Long id, @Valid @RequestBody PacienteDTO dto) {
+        return ResponseEntity.ok(service.actualizar(id, dto));
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> eliminar(@PathVariable Long id) {
         service.eliminar(id);
-        return ResponseEntity.noContent().build(); // Retorna un 244 No Content estandarizado
+        return ResponseEntity.noContent().build();
     }
 }

@@ -9,13 +9,14 @@ import com.cdental.citas_service.repository.CitaRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
 public class CitaService {
+    
     private static final Logger logger = LoggerFactory.getLogger(CitaService.class);
+    
     private final CitaRepository repository;
     private final PacienteClient pacienteClient;
     private final OdontologoClient odontologoClient;
@@ -27,78 +28,85 @@ public class CitaService {
     }
 
     public List<CitaDTO> obtenerTodas() {
-        logger.info("Obteniendo todas las citas");
+        logger.info("Recuperando el listado historico de citas medicas");
         return repository.findAll().stream()
                 .map(this::convertirADtoEnriquecido)
                 .collect(Collectors.toList());
     }
 
     public CitaDTO obtenerPorId(Long id) {
-        logger.info("Obteniendo cita por id: {}", id);
+        logger.info("Buscando cita medica con ID: {}", id);
         Cita cita = repository.findById(id)
                 .orElseThrow(() -> new CitaException("Cita no encontrada con ID: " + id));
         return convertirADtoEnriquecido(cita);
     }
 
     public CitaDTO crear(CitaDTO dto) {
-        logger.info("Creando una nueva cita");
-        try {
-            pacienteClient.obtenerPorId(dto.getPaciente_id());
-            odontologoClient.obtenerPorId(dto.getOdontologo_id());
-        } catch (Exception e) {
-            throw new CitaException("No se pudo crear la cita: El Paciente o el Odontólogo no existen.");
-        }
+        logger.info("Intentando registrar nueva cita para Paciente ID: {} y Odontologo ID: {}", dto.getPacienteId(), dto.getOdontologoId());
+        
+        validarExistenciaRemota(dto.getPacienteId(), dto.getOdontologoId());
 
         Cita cita = new Cita();
-        cita.setPaciente_id(dto.getPaciente_id());
-        cita.setOdontologo_id(dto.getOdontologo_id());
-        cita.setFecha_hora(dto.getFecha_hora());
+        cita.setPacienteId(dto.getPacienteId());
+        cita.setOdontologoId(dto.getOdontologoId());
+        cita.setFechaHora(dto.getFechaHora());
         cita.setMotivo(dto.getMotivo());
 
         return convertirADtoEnriquecido(repository.save(cita));
     }
 
     public CitaDTO actualizar(Long id, CitaDTO dto) {
-        logger.info("Actualizando cita con id: {}", id);
+        logger.info("Modificando parametros de la cita con ID: {}", id);
+        
         Cita cita = repository.findById(id)
                 .orElseThrow(() -> new CitaException("No se puede actualizar. Cita no encontrada con ID: " + id));
 
-        try {
-            pacienteClient.obtenerPorId(dto.getPaciente_id());
-            odontologoClient.obtenerPorId(dto.getOdontologo_id());
-        } catch (Exception e) {
-            throw new CitaException("No se pudo actualizar la cita: El Paciente o el Odontólogo no existen.");
-        }
+        validarExistenciaRemota(dto.getPacienteId(), dto.getOdontologoId());
 
-        cita.setPaciente_id(dto.getPaciente_id());
-        cita.setOdontologo_id(dto.getOdontologo_id());
-        cita.setFecha_hora(dto.getFecha_hora());
+        cita.setPacienteId(dto.getPacienteId());
+        cita.setOdontologoId(dto.getOdontologoId());
+        cita.setFechaHora(dto.getFechaHora());
         cita.setMotivo(dto.getMotivo());
 
         return convertirADtoEnriquecido(repository.save(cita));
     }
 
     public void eliminar(Long id) {
-        logger.info("Eliminando cita con id: {}", id);
+        logger.info("Removiendo cita medica con ID: {}", id);
         Cita cita = repository.findById(id)
                 .orElseThrow(() -> new CitaException("No se puede eliminar. Cita no encontrada con ID: " + id));
         repository.delete(cita);
     }
 
+    private void validarExistenciaRemota(Long pacienteId, Long odontologoId) {
+        try {
+            pacienteClient.obtenerPorId(pacienteId);
+            odontologoClient.obtenerPorId(odontologoId);
+        } catch (Exception e) {
+            throw new CitaException("Validacion remota fallida: El Paciente o el Odontologo no existen en sus respectivos microservicios.");
+        }
+    }
+
     private CitaDTO convertirADtoEnriquecido(Cita cita) {
         CitaDTO dto = new CitaDTO();
         dto.setId(cita.getId());
-        dto.setPaciente_id(cita.getPaciente_id());
-        dto.setOdontologo_id(cita.getOdontologo_id());
-        dto.setFecha_hora(cita.getFecha_hora());
+        dto.setPacienteId(cita.getPacienteId());
+        dto.setOdontologoId(cita.getOdontologoId());
+        dto.setFechaHora(cita.getFechaHora());
         dto.setMotivo(cita.getMotivo());
 
         try {
-            dto.setPaciente(pacienteClient.obtenerPorId(cita.getPaciente_id()));
-            dto.setOdontologo(odontologoClient.obtenerPorId(cita.getOdontologo_id()));
+            dto.setPaciente(pacienteClient.obtenerPorId(cita.getPacienteId()));
         } catch (Exception e) {
-            // Se mantiene silencioso si falla la red, igual que tus otros MS
+            logger.warn("No se pudo enriquecer el Paciente con ID: {} (Microservicio caido o inexistente)", cita.getPacienteId());
         }
+
+        try {
+            dto.setOdontologo(odontologoClient.obtenerPorId(cita.getOdontologoId()));
+        } catch (Exception e) {
+            logger.warn("No se pudo enriquecer el Odontologo con ID: {} (Microservicio caido o inexistente)", cita.getOdontologoId());
+        }
+
         return dto;
     }
 }

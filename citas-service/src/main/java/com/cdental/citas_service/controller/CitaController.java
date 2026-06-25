@@ -9,7 +9,6 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -44,20 +43,13 @@ public class CitaController {
     }
 
     @PostMapping
-    public ResponseEntity<EntityModel<CitaDTO>> crear(@Valid @RequestBody CitaDTO dto) {
-        CitaDTO nuevo = service.crear(dto);
-        return new ResponseEntity<>(EntityModel.of(nuevo,
-                linkTo(methodOn(CitaController.class).obtenerPorId(nuevo.getId())).withSelfRel(),
-                linkTo(methodOn(CitaController.class).obtenerTodas()).withRel("citas")), 
-                HttpStatus.CREATED);
+    public ResponseEntity<CitaDTO> crear(@Valid @RequestBody CitaDTO dto) {
+        return new ResponseEntity<>(service.crear(dto), HttpStatus.CREATED);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<EntityModel<CitaDTO>> actualizar(@PathVariable Long id, @RequestBody CitaDTO dto) {
-        CitaDTO modificado = service.actualizar(id, dto);
-        return ResponseEntity.ok(EntityModel.of(modificado,
-                linkTo(methodOn(CitaController.class).obtenerPorId(modificado.getId())).withSelfRel(),
-                linkTo(methodOn(CitaController.class).obtenerTodas()).withRel("citas")));
+    public ResponseEntity<CitaDTO> actualizar(@PathVariable Long id, @Valid @RequestBody CitaDTO dto) {
+        return ResponseEntity.ok(service.actualizar(id, dto));
     }
 
     @DeleteMapping("/{id}")

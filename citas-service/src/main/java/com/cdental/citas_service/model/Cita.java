@@ -10,12 +10,19 @@ import java.time.LocalDateTime;
 @Data
 @NoArgsConstructor
 public class Cita {
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
-    private Long paciente_id;
-    private Long odontologo_id;
-    private LocalDateTime fecha_hora;
+    @Column(name = "paciente_id")
+    private Long pacienteId;
+    
+    @Column(name = "odontologo_id")
+    private Long odontologoId;
+    
+    @Column(name = "fecha_hora")
+    private LocalDateTime fechaHora;
+    
     private String motivo;
 }

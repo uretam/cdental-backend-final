@@ -11,3 +11,15 @@ spring:
     hibernate:
       ddl-auto: validate
     show-sql: true
+
+resilience4j:
+  circuitbreaker:
+    instances:
+      paciente-service:
+        slidingWindowSize: 10
+        failureRateThreshold: 50
+        waitDurationInOpenState: 10000
+      odontologo-service:
+        slidingWindowSize: 10
+        failureRateThreshold: 50
+        waitDurationInOpenState: 10000

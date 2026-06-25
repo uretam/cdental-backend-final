@@ -6,3 +6,9 @@ spring:
     url: jdbc:mysql://db-citas:3306/db_citas
     username: root
     password: root
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, info, metrics
