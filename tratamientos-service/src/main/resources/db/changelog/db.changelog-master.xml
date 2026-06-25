@@ -5,7 +5,7 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.20.xsd">
 
-    <changeSet id="1" author="arquitecto-java">
+    <changeSet id="1" author="alumno">
         <createTable tableName="tratamientos">
             <column name="id" type="BIGINT" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>
@@ -51,13 +51,6 @@
             <column name="descripcion" value="Extracción de pieza sin complicaciones quirúrgicas."/>
             <column name="precio_base" value="40000.00"/>
             <column name="duracion_estimada_minutos" value="30"/>
-            <column name="activo" valueNumeric="1"/>
-        </insert>
-        <insert tableName="tratamientos">
-            <column name="nombre" value="Endodoncia Unirradicular"/>
-            <column name="descripcion" value="Tratamiento de conducto en pieza con un solo conducto."/>
-            <column name="precio_base" value="150000.00"/>
-            <column name="duracion_estimada_minutos" value="90"/>
             <column name="activo" valueNumeric="1"/>
         </insert>
         <insert tableName="tratamientos">

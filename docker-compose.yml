@@ -1,6 +1,6 @@
 services:
   # ==========================================
-  # BASES DE DATOS (Mantenemos tus puertos externos)
+  # BASES DE DATOS
   # ==========================================
   db-auth:
     image: mysql:8.0
@@ -139,13 +139,13 @@ services:
       start_period: 20s
 
   # ==========================================
-  # MICROSERVICIOS CORE (Compilan con sus Dockerfiles)
+  # MICROSERVICIOS CORE
   # ==========================================
   auth-service:
     build: ./auth-service
     container_name: auth-service
     ports:
-      - "8081:8081"
+      - "9081:8081"
     environment:
       SPRING_PROFILES_ACTIVE: prod
     depends_on:
@@ -156,7 +156,7 @@ services:
     build: ./paciente-service
     container_name: paciente-service
     ports:
-      - "8082:8082"
+      - "9082:8082"
     environment:
       SPRING_PROFILES_ACTIVE: prod
     depends_on:
@@ -167,7 +167,7 @@ services:
     build: ./odontologo-service
     container_name: odontologo-service
     ports:
-      - "8083:8083"
+      - "9083:8083"
     environment:
       SPRING_PROFILES_ACTIVE: prod
     depends_on:
@@ -178,7 +178,7 @@ services:
     build: ./tratamientos-service
     container_name: tratamientos-service
     ports:
-      - "8084:8084"
+      - "9084:8084"
     environment:
       SPRING_PROFILES_ACTIVE: prod
     depends_on:
@@ -189,7 +189,7 @@ services:
     build: ./citas-service
     container_name: citas-service
     ports:
-      - "8085:8085"
+      - "9085:8085"
     environment:
       SPRING_PROFILES_ACTIVE: prod
     depends_on:
@@ -200,7 +200,7 @@ services:
     build: ./pagos-service
     container_name: pagos-service
     ports:
-      - "8086:8086"
+      - "9086:8086"
     environment:
       SPRING_PROFILES_ACTIVE: prod
     depends_on:
@@ -211,7 +211,7 @@ services:
     build: ./historial-service
     container_name: historial-service
     ports:
-      - "8087:8087"
+      - "9087:8087"
     environment:
       SPRING_PROFILES_ACTIVE: prod
     depends_on:
@@ -222,7 +222,7 @@ services:
     build: ./insumos-service
     container_name: insumos-service
     ports:
-      - "8088:8088"
+      - "9088:8088"
     environment:
       SPRING_PROFILES_ACTIVE: prod
     depends_on:
@@ -233,7 +233,7 @@ services:
     build: ./api-gateway
     container_name: api-gateway
     ports:
-      - "8080:8080"
+      - "9080:8080"
     environment:
       SPRING_PROFILES_ACTIVE: prod
     depends_on:
