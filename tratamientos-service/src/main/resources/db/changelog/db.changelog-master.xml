@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.20.xsd">
+
+    <changeSet id="20261024-01" author="arquitecto-java">
+        <createTable tableName="tratamientos">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="nombre" type="VARCHAR(100)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="descripcion" type="VARCHAR(255)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="precio_base" type="DECIMAL(10,2)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="duracion_estimada_minutos" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="activo" type="BIT" defaultValueBoolean="true">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="20261024-02" author="arquitecto-java">
+        <insert tableName="tratamientos">
+            <column name="nombre" value="Limpieza Dental Profiláctica"/>
+            <column name="descripcion" value="Remoción de cálculo dental y pulido coronario simple."/>
+            <column name="precio_base" value="45000.00"/>
+            <column name="duracion_estimada_minutos" value="30"/>
+            <column name="activo" valueNumeric="1"/>
+        </insert>
+        <insert tableName="tratamientos">
+            <column name="nombre" value="Restauración Resina Simple"/>
+            <column name="descripcion" value="Obturación estética de composite."/>
+            <column name="precio_base" value="55000.00"/>
+            <column name="duracion_estimada_minutos" value="45"/>
+            <column name="activo" valueNumeric="1"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>
