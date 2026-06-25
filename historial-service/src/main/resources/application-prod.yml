@@ -1,0 +1,8 @@
+server:
+  port: 8086
+
+spring:
+  datasource:
+    url: jdbc:mysql://db-historiales:3306/db_historiales
+    username: root
+    password: root
