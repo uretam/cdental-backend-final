@@ -3,7 +3,7 @@ server:
 
 spring:
   datasource:
-    url: jdbc:mysql://localhost:33061/db_odontologos?createDatabaseIfNotExist=true
+    url: jdbc:mysql://localhost:33063/db_odontologos?createDatabaseIfNotExist=true
     username: root
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver

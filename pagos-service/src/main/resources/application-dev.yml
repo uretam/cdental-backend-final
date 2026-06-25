@@ -3,7 +3,7 @@ server:
 
 spring:
   datasource:
-    url: jdbc:mysql://localhost:33061/db_pagos?createDatabaseIfNotExist=true
+    url: jdbc:mysql://localhost:33066/db_pagos?createDatabaseIfNotExist=true
     username: root
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
