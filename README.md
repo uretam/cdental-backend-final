@@ -87,17 +87,17 @@ Cada servicio está construido con Spring Boot 3.5.15 y Java 17. Los servicios q
   </thead>
   <tbody>
     <tr>
-      <td style="border:1px solid #d1d5db; padding:8px;">![POST](https://img.shields.io/badge/POST-green?style=flat)</td>
+      <td style="border:1px solid #d1d5db; padding:8px;"><img src="https://img.shields.io/badge/POST-green?style=flat" alt="POST" /></td>
       <td style="border:1px solid #d1d5db; padding:8px;">`POST /auth/login`</td>
       <td style="border:1px solid #d1d5db; padding:8px;">Autenticar usuario y obtener token</td>
     </tr>
     <tr>
-      <td style="border:1px solid #d1d5db; padding:8px;">![GET](https://img.shields.io/badge/GET-blue?style=flat)</td>
+      <td style="border:1px solid #d1d5db; padding:8px;"><img src="https://img.shields.io/badge/GET-blue?style=flat" alt="GET" /></td>
       <td style="border:1px solid #d1d5db; padding:8px;">`GET /auth/users`</td>
       <td style="border:1px solid #d1d5db; padding:8px;">Obtener lista de usuarios</td>
     </tr>
     <tr>
-      <td style="border:1px solid #d1d5db; padding:8px;">![GET](https://img.shields.io/badge/GET-blue?style=flat)</td>
+      <td style="border:1px solid #d1d5db; padding:8px;"><img src="https://img.shields.io/badge/GET-blue?style=flat" alt="GET" /></td>
       <td style="border:1px solid #d1d5db; padding:8px;">`GET /auth/users/{id}`</td>
       <td style="border:1px solid #d1d5db; padding:8px;">Obtener usuario por ID</td>
     </tr>
@@ -127,32 +127,32 @@ Cada servicio está construido con Spring Boot 3.5.15 y Java 17. Los servicios q
   </thead>
   <tbody>
     <tr>
-      <td style="border:1px solid #d1d5db; padding:8px;">![GET](https://img.shields.io/badge/GET-blue?style=flat)</td>
+      <td style="border:1px solid #d1d5db; padding:8px;"><img src="https://img.shields.io/badge/GET-blue?style=flat" alt="GET" /></td>
       <td style="border:1px solid #d1d5db; padding:8px;">`GET /pacientes`</td>
       <td style="border:1px solid #d1d5db; padding:8px;">Listar todos los pacientes</td>
     </tr>
     <tr>
-      <td style="border:1px solid #d1d5db; padding:8px;">![GET](https://img.shields.io/badge/GET-blue?style=flat)</td>
+      <td style="border:1px solid #d1d5db; padding:8px;"><img src="https://img.shields.io/badge/GET-blue?style=flat" alt="GET" /></td>
       <td style="border:1px solid #d1d5db; padding:8px;">`GET /pacientes/{id}`</td>
       <td style="border:1px solid #d1d5db; padding:8px;">Obtener paciente por ID</td>
     </tr>
     <tr>
-      <td style="border:1px solid #d1d5db; padding:8px;">![GET](https://img.shields.io/badge/GET-blue?style=flat)</td>
+      <td style="border:1px solid #d1d5db; padding:8px;"><img src="https://img.shields.io/badge/GET-blue?style=flat" alt="GET" /></td>
       <td style="border:1px solid #d1d5db; padding:8px;">`GET /pacientes/rut/{rut}`</td>
       <td style="border:1px solid #d1d5db; padding:8px;">Buscar paciente por RUT</td>
     </tr>
     <tr>
-      <td style="border:1px solid #d1d5db; padding:8px;">![POST](https://img.shields.io/badge/POST-green?style=flat)</td>
+      <td style="border:1px solid #d1d5db; padding:8px;"><img src="https://img.shields.io/badge/POST-green?style=flat" alt="POST" /></td>
       <td style="border:1px solid #d1d5db; padding:8px;">`POST /pacientes`</td>
       <td style="border:1px solid #d1d5db; padding:8px;">Crear paciente</td>
     </tr>
     <tr>
-      <td style="border:1px solid #d1d5db; padding:8px;">![PUT](https://img.shields.io/badge/PUT-yellow?style=flat)</td>
+      <td style="border:1px solid #d1d5db; padding:8px;"><img src="https://img.shields.io/badge/PUT-yellow?style=flat" alt="PUT" /></td>
       <td style="border:1px solid #d1d5db; padding:8px;">`PUT /pacientes/{id}`</td>
       <td style="border:1px solid #d1d5db; padding:8px;">Actualizar paciente</td>
     </tr>
     <tr>
-      <td style="border:1px solid #d1d5db; padding:8px;">![DELETE](https://img.shields.io/badge/DELETE-red?style=flat)</td>
+      <td style="border:1px solid #d1d5db; padding:8px;"><img src="https://img.shields.io/badge/DELETE-red?style=flat" alt="DELETE" /></td>
       <td style="border:1px solid #d1d5db; padding:8px;">`DELETE /pacientes/{id}`</td>
       <td style="border:1px solid #d1d5db; padding:8px;">Eliminar paciente</td>
     </tr>
@@ -177,27 +177,27 @@ Cada servicio está construido con Spring Boot 3.5.15 y Java 17. Los servicios q
   </thead>
   <tbody>
     <tr>
-      <td style="border:1px solid #d1d5db; padding:8px;">![GET](https://img.shields.io/badge/GET-blue?style=flat)</td>
+      <td style="border:1px solid #d1d5db; padding:8px;"><img src="https://img.shields.io/badge/GET-blue?style=flat" alt="GET" /></td>
       <td style="border:1px solid #d1d5db; padding:8px;">`GET /odontologos`</td>
       <td style="border:1px solid #d1d5db; padding:8px;">Listar odontólogos</td>
     </tr>
     <tr>
-      <td style="border:1px solid #d1d5db; padding:8px;">![GET](https://img.shields.io/badge/GET-blue?style=flat)</td>
+      <td style="border:1px solid #d1d5db; padding:8px;"><img src="https://img.shields.io/badge/GET-blue?style=flat" alt="GET" /></td>
       <td style="border:1px solid #d1d5db; padding:8px;">`GET /odontologos/{id}`</td>
       <td style="border:1px solid #d1d5db; padding:8px;">Obtener odontólogo por ID</td>
     </tr>
     <tr>
-      <td style="border:1px solid #d1d5db; padding:8px;">![POST](https://img.shields.io/badge/POST-green?style=flat)</td>
+      <td style="border:1px solid #d1d5db; padding:8px;"><img src="https://img.shields.io/badge/POST-green?style=flat" alt="POST" /></td>
       <td style="border:1px solid #d1d5db; padding:8px;">`POST /odontologos`</td>
       <td style="border:1px solid #d1d5db; padding:8px;">Crear odontólogo</td>
     </tr>
     <tr>
-      <td style="border:1px solid #d1d5db; padding:8px;">![PUT](https://img.shields.io/badge/PUT-yellow?style=flat)</td>
+      <td style="border:1px solid #d1d5db; padding:8px;"><img src="https://img.shields.io/badge/PUT-yellow?style=flat" alt="PUT" /></td>
       <td style="border:1px solid #d1d5db; padding:8px;">`PUT /odontologos/{id}`</td>
       <td style="border:1px solid #d1d5db; padding:8px;">Actualizar odontólogo</td>
     </tr>
     <tr>
-      <td style="border:1px solid #d1d5db; padding:8px;">![DELETE](https://img.shields.io/badge/DELETE-red?style=flat)</td>
+      <td style="border:1px solid #d1d5db; padding:8px;"><img src="https://img.shields.io/badge/DELETE-red?style=flat" alt="DELETE" /></td>
       <td style="border:1px solid #d1d5db; padding:8px;">`DELETE /odontologos/{id}`</td>
       <td style="border:1px solid #d1d5db; padding:8px;">Eliminar odontólogo</td>
     </tr>
@@ -222,27 +222,27 @@ Cada servicio está construido con Spring Boot 3.5.15 y Java 17. Los servicios q
   </thead>
   <tbody>
     <tr>
-      <td style="border:1px solid #d1d5db; padding:8px;">![GET](https://img.shields.io/badge/GET-blue?style=flat)</td>
+      <td style="border:1px solid #d1d5db; padding:8px;"><img src="https://img.shields.io/badge/GET-blue?style=flat" alt="GET" /></td>
       <td style="border:1px solid #d1d5db; padding:8px;">`GET /tratamientos`</td>
       <td style="border:1px solid #d1d5db; padding:8px;">Listar tratamientos</td>
     </tr>
     <tr>
-      <td style="border:1px solid #d1d5db; padding:8px;">![GET](https://img.shields.io/badge/GET-blue?style=flat)</td>
+      <td style="border:1px solid #d1d5db; padding:8px;"><img src="https://img.shields.io/badge/GET-blue?style=flat" alt="GET" /></td>
       <td style="border:1px solid #d1d5db; padding:8px;">`GET /tratamientos/{id}`</td>
       <td style="border:1px solid #d1d5db; padding:8px;">Obtener tratamiento por ID</td>
     </tr>
     <tr>
-      <td style="border:1px solid #d1d5db; padding:8px;">![POST](https://img.shields.io/badge/POST-green?style=flat)</td>
+      <td style="border:1px solid #d1d5db; padding:8px;"><img src="https://img.shields.io/badge/POST-green?style=flat" alt="POST" /></td>
       <td style="border:1px solid #d1d5db; padding:8px;">`POST /tratamientos`</td>
       <td style="border:1px solid #d1d5db; padding:8px;">Crear tratamiento</td>
     </tr>
     <tr>
-      <td style="border:1px solid #d1d5db; padding:8px;">![PUT](https://img.shields.io/badge/PUT-yellow?style=flat)</td>
+      <td style="border:1px solid #d1d5db; padding:8px;"><img src="https://img.shields.io/badge/PUT-yellow?style=flat" alt="PUT" /></td>
       <td style="border:1px solid #d1d5db; padding:8px;">`PUT /tratamientos/{id}`</td>
       <td style="border:1px solid #d1d5db; padding:8px;">Actualizar tratamiento</td>
     </tr>
     <tr>
-      <td style="border:1px solid #d1d5db; padding:8px;">![DELETE](https://img.shields.io/badge/DELETE-red?style=flat)</td>
+      <td style="border:1px solid #d1d5db; padding:8px;"><img src="https://img.shields.io/badge/DELETE-red?style=flat" alt="DELETE" /></td>
       <td style="border:1px solid #d1d5db; padding:8px;">`DELETE /tratamientos/{id}`</td>
       <td style="border:1px solid #d1d5db; padding:8px;">Eliminar tratamiento</td>
     </tr>
@@ -269,27 +269,27 @@ Cada servicio está construido con Spring Boot 3.5.15 y Java 17. Los servicios q
   </thead>
   <tbody>
     <tr>
-      <td style="border:1px solid #d1d5db; padding:8px;">![GET](https://img.shields.io/badge/GET-blue?style=flat)</td>
+      <td style="border:1px solid #d1d5db; padding:8px;"><img src="https://img.shields.io/badge/GET-blue?style=flat" alt="GET" /></td>
       <td style="border:1px solid #d1d5db; padding:8px;">`GET /citas`</td>
       <td style="border:1px solid #d1d5db; padding:8px;">Listar todas las citas</td>
     </tr>
     <tr>
-      <td style="border:1px solid #d1d5db; padding:8px;">![GET](https://img.shields.io/badge/GET-blue?style=flat)</td>
+      <td style="border:1px solid #d1d5db; padding:8px;"><img src="https://img.shields.io/badge/GET-blue?style=flat" alt="GET" /></td>
       <td style="border:1px solid #d1d5db; padding:8px;">`GET /citas/{id}`</td>
       <td style="border:1px solid #d1d5db; padding:8px;">Obtener cita por ID</td>
     </tr>
     <tr>
-      <td style="border:1px solid #d1d5db; padding:8px;">![POST](https://img.shields.io/badge/POST-green?style=flat)</td>
+      <td style="border:1px solid #d1d5db; padding:8px;"><img src="https://img.shields.io/badge/POST-green?style=flat" alt="POST" /></td>
       <td style="border:1px solid #d1d5db; padding:8px;">`POST /citas`</td>
       <td style="border:1px solid #d1d5db; padding:8px;">Crear cita</td>
     </tr>
     <tr>
-      <td style="border:1px solid #d1d5db; padding:8px;">![PUT](https://img.shields.io/badge/PUT-yellow?style=flat)</td>
+      <td style="border:1px solid #d1d5db; padding:8px;"><img src="https://img.shields.io/badge/PUT-yellow?style=flat" alt="PUT" /></td>
       <td style="border:1px solid #d1d5db; padding:8px;">`PUT /citas/{id}`</td>
       <td style="border:1px solid #d1d5db; padding:8px;">Actualizar cita</td>
     </tr>
     <tr>
-      <td style="border:1px solid #d1d5db; padding:8px;">![DELETE](https://img.shields.io/badge/DELETE-red?style=flat)</td>
+      <td style="border:1px solid #d1d5db; padding:8px;"><img src="https://img.shields.io/badge/DELETE-red?style=flat" alt="DELETE" /></td>
       <td style="border:1px solid #d1d5db; padding:8px;">`DELETE /citas/{id}`</td>
       <td style="border:1px solid #d1d5db; padding:8px;">Eliminar cita</td>
     </tr>
@@ -316,27 +316,27 @@ Cada servicio está construido con Spring Boot 3.5.15 y Java 17. Los servicios q
   </thead>
   <tbody>
     <tr>
-      <td style="border:1px solid #d1d5db; padding:8px;">![GET](https://img.shields.io/badge/GET-blue?style=flat)</td>
+      <td style="border:1px solid #d1d5db; padding:8px;"><img src="https://img.shields.io/badge/GET-blue?style=flat" alt="GET" /></td>
       <td style="border:1px solid #d1d5db; padding:8px;">`GET /pagos`</td>
       <td style="border:1px solid #d1d5db; padding:8px;">Listar pagos</td>
     </tr>
     <tr>
-      <td style="border:1px solid #d1d5db; padding:8px;">![GET](https://img.shields.io/badge/GET-blue?style=flat)</td>
+      <td style="border:1px solid #d1d5db; padding:8px;"><img src="https://img.shields.io/badge/GET-blue?style=flat" alt="GET" /></td>
       <td style="border:1px solid #d1d5db; padding:8px;">`GET /pagos/{id}`</td>
       <td style="border:1px solid #d1d5db; padding:8px;">Obtener pago por ID</td>
     </tr>
     <tr>
-      <td style="border:1px solid #d1d5db; padding:8px;">![POST](https://img.shields.io/badge/POST-green?style=flat)</td>
+      <td style="border:1px solid #d1d5db; padding:8px;"><img src="https://img.shields.io/badge/POST-green?style=flat" alt="POST" /></td>
       <td style="border:1px solid #d1d5db; padding:8px;">`POST /pagos`</td>
       <td style="border:1px solid #d1d5db; padding:8px;">Registrar nuevo pago</td>
     </tr>
     <tr>
-      <td style="border:1px solid #d1d5db; padding:8px;">![PUT](https://img.shields.io/badge/PUT-yellow?style=flat)</td>
+      <td style="border:1px solid #d1d5db; padding:8px;"><img src="https://img.shields.io/badge/PUT-yellow?style=flat" alt="PUT" /></td>
       <td style="border:1px solid #d1d5db; padding:8px;">`PUT /pagos/{id}`</td>
       <td style="border:1px solid #d1d5db; padding:8px;">Actualizar pago</td>
     </tr>
     <tr>
-      <td style="border:1px solid #d1d5db; padding:8px;">![DELETE](https://img.shields.io/badge/DELETE-red?style=flat)</td>
+      <td style="border:1px solid #d1d5db; padding:8px;"><img src="https://img.shields.io/badge/DELETE-red?style=flat" alt="DELETE" /></td>
       <td style="border:1px solid #d1d5db; padding:8px;">`DELETE /pagos/{id}`</td>
       <td style="border:1px solid #d1d5db; padding:8px;">Eliminar pago</td>
     </tr>
@@ -363,27 +363,27 @@ Cada servicio está construido con Spring Boot 3.5.15 y Java 17. Los servicios q
   </thead>
   <tbody>
     <tr>
-      <td style="border:1px solid #d1d5db; padding:8px;">![GET](https://img.shields.io/badge/GET-blue?style=flat)</td>
+      <td style="border:1px solid #d1d5db; padding:8px;"><img src="https://img.shields.io/badge/GET-blue?style=flat" alt="GET" /></td>
       <td style="border:1px solid #d1d5db; padding:8px;">`GET /historiales`</td>
       <td style="border:1px solid #d1d5db; padding:8px;">Listar historiales clínicos</td>
     </tr>
     <tr>
-      <td style="border:1px solid #d1d5db; padding:8px;">![GET](https://img.shields.io/badge/GET-blue?style=flat)</td>
+      <td style="border:1px solid #d1d5db; padding:8px;"><img src="https://img.shields.io/badge/GET-blue?style=flat" alt="GET" /></td>
       <td style="border:1px solid #d1d5db; padding:8px;">`GET /historiales/{id}`</td>
       <td style="border:1px solid #d1d5db; padding:8px;">Obtener historial por ID</td>
     </tr>
     <tr>
-      <td style="border:1px solid #d1d5db; padding:8px;">![POST](https://img.shields.io/badge/POST-green?style=flat)</td>
+      <td style="border:1px solid #d1d5db; padding:8px;"><img src="https://img.shields.io/badge/POST-green?style=flat" alt="POST" /></td>
       <td style="border:1px solid #d1d5db; padding:8px;">`POST /historiales`</td>
       <td style="border:1px solid #d1d5db; padding:8px;">Crear historial clínico</td>
     </tr>
     <tr>
-      <td style="border:1px solid #d1d5db; padding:8px;">![PUT](https://img.shields.io/badge/PUT-yellow?style=flat)</td>
+      <td style="border:1px solid #d1d5db; padding:8px;"><img src="https://img.shields.io/badge/PUT-yellow?style=flat" alt="PUT" /></td>
       <td style="border:1px solid #d1d5db; padding:8px;">`PUT /historiales/{id}`</td>
       <td style="border:1px solid #d1d5db; padding:8px;">Actualizar historial clínico</td>
     </tr>
     <tr>
-      <td style="border:1px solid #d1d5db; padding:8px;">![DELETE](https://img.shields.io/badge/DELETE-red?style=flat)</td>
+      <td style="border:1px solid #d1d5db; padding:8px;"><img src="https://img.shields.io/badge/DELETE-red?style=flat" alt="DELETE" /></td>
       <td style="border:1px solid #d1d5db; padding:8px;">`DELETE /historiales/{id}`</td>
       <td style="border:1px solid #d1d5db; padding:8px;">Eliminar historial clínico</td>
     </tr>
@@ -411,27 +411,27 @@ Cada servicio está construido con Spring Boot 3.5.15 y Java 17. Los servicios q
   </thead>
   <tbody>
     <tr>
-      <td style="border:1px solid #d1d5db; padding:8px;">![GET](https://img.shields.io/badge/GET-blue?style=flat)</td>
+      <td style="border:1px solid #d1d5db; padding:8px;"><img src="https://img.shields.io/badge/GET-blue?style=flat" alt="GET" /></td>
       <td style="border:1px solid #d1d5db; padding:8px;">`GET /insumos`</td>
       <td style="border:1px solid #d1d5db; padding:8px;">Listar insumos</td>
     </tr>
     <tr>
-      <td style="border:1px solid #d1d5db; padding:8px;">![GET](https://img.shields.io/badge/GET-blue?style=flat)</td>
+      <td style="border:1px solid #d1d5db; padding:8px;"><img src="https://img.shields.io/badge/GET-blue?style=flat" alt="GET" /></td>
       <td style="border:1px solid #d1d5db; padding:8px;">`GET /insumos/{id}`</td>
       <td style="border:1px solid #d1d5db; padding:8px;">Obtener insumo por ID</td>
     </tr>
     <tr>
-      <td style="border:1px solid #d1d5db; padding:8px;">![POST](https://img.shields.io/badge/POST-green?style=flat)</td>
+      <td style="border:1px solid #d1d5db; padding:8px;"><img src="https://img.shields.io/badge/POST-green?style=flat" alt="POST" /></td>
       <td style="border:1px solid #d1d5db; padding:8px;">`POST /insumos`</td>
       <td style="border:1px solid #d1d5db; padding:8px;">Crear insumo</td>
     </tr>
     <tr>
-      <td style="border:1px solid #d1d5db; padding:8px;">![PUT](https://img.shields.io/badge/PUT-yellow?style=flat)</td>
+      <td style="border:1px solid #d1d5db; padding:8px;"><img src="https://img.shields.io/badge/PUT-yellow?style=flat" alt="PUT" /></td>
       <td style="border:1px solid #d1d5db; padding:8px;">`PUT /insumos/{id}`</td>
       <td style="border:1px solid #d1d5db; padding:8px;">Actualizar insumo</td>
     </tr>
     <tr>
-      <td style="border:1px solid #d1d5db; padding:8px;">![DELETE](https://img.shields.io/badge/DELETE-red?style=flat)</td>
+      <td style="border:1px solid #d1d5db; padding:8px;"><img src="https://img.shields.io/badge/DELETE-red?style=flat" alt="DELETE" /></td>
       <td style="border:1px solid #d1d5db; padding:8px;">`DELETE /insumos/{id}`</td>
       <td style="border:1px solid #d1d5db; padding:8px;">Eliminar insumo</td>
     </tr>
