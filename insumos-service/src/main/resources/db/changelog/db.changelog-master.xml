@@ -5,32 +5,72 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.20.xsd">
 
-    <changeSet id="20261028-01" author="arquitecto-java">
-        <createTable tableName="insumos">
+    <changeSet id="1" author="alumno">
+        <createTable tableName="citas">
             <column name="id" type="BIGINT" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="nombre" type="VARCHAR(100)">
+            <column name="paciente_id" type="BIGINT">
                 <constraints nullable="false"/>
             </column>
-            <column name="stock_actual" type="INT">
+            <column name="odontologo_id" type="BIGINT">
                 <constraints nullable="false"/>
             </column>
-            <column name="stock_minimo" type="INT">
+            <column name="fecha_hora" type="DATETIME">
                 <constraints nullable="false"/>
             </column>
-            <column name="activo" type="BIT" defaultValueBoolean="true">
+            <column name="motivo" type="VARCHAR(255)">
                 <constraints nullable="false"/>
             </column>
         </createTable>
     </changeSet>
 
-    <changeSet id="20261028-02" author="arquitecto-java">
-        <insert tableName="insumos">
-            <column name="nombre" value="Guantes de Látex Quirúrgicos M"/>
-            <column name="stock_actual" valueNumeric="150"/>
-            <column name="stock_minimo" valueNumeric="20"/>
-            <column name="activo" valueNumeric="1"/>
+    <changeSet id="2" author="alumno">
+        <insert tableName="citas">
+            <column name="paciente_id" valueNumeric="1"/>
+            <column name="odontologo_id" valueNumeric="1"/>
+            <column name="fecha_hora" valueDate="2026-10-15T10:00:00"/>
+            <column name="motivo" value="Limpieza dental general y evaluacion"/>
         </insert>
     </changeSet>
+
+    <changeSet id="3" author="alumno">
+        <insert tableName="citas">
+            <column name="paciente_id" valueNumeric="2"/>
+            <column name="odontologo_id" valueNumeric="2"/>
+            <column name="fecha_hora" valueDate="2026-10-16T11:00:00"/>
+            <column name="motivo" value="Restauracion de pieza 36 con resina"/>
+        </insert>
+        <insert tableName="citas">
+            <column name="paciente_id" valueNumeric="3"/>
+            <column name="odontologo_id" valueNumeric="1"/>
+            <column name="fecha_hora" valueDate="2026-10-17T09:30:00"/>
+            <column name="motivo" value="Extraccion de tercer molar inferior derecho"/>
+        </insert>
+        <insert tableName="citas">
+            <column name="paciente_id" valueNumeric="4"/>
+            <column name="odontologo_id" valueNumeric="3"/>
+            <column name="fecha_hora" valueDate="2026-10-18T14:00:00"/>
+            <column name="motivo" value="Tratamiento de conducto pieza 21"/>
+        </insert>
+        <insert tableName="citas">
+            <column name="paciente_id" valueNumeric="5"/>
+            <column name="odontologo_id" valueNumeric="2"/>
+            <column name="fecha_hora" valueDate="2026-10-20T10:00:00"/>
+            <column name="motivo" value="Blanqueamiento dental primera sesion"/>
+        </insert>
+        <insert tableName="citas">
+            <column name="paciente_id" valueNumeric="6"/>
+            <column name="odontologo_id" valueNumeric="1"/>
+            <column name="fecha_hora" valueDate="2026-10-21T15:30:00"/>
+            <column name="motivo" value="Control ortodoncia mensual"/>
+        </insert>
+        <insert tableName="citas">
+            <column name="paciente_id" valueNumeric="7"/>
+            <column name="odontologo_id" valueNumeric="3"/>
+            <column name="fecha_hora" valueDate="2026-10-22T08:00:00"/>
+            <column name="motivo" value="Evaluacion para implante pieza 46"/>
+        </insert>
+    </changeSet>
+
 </databaseChangeLog>

@@ -1,0 +1,56 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      routes:
+        # 1. Microservicio de Autenticación
+        - id: auth-service
+          uri: http://auth-service:8081
+          predicates:
+            - Path=/auth/**
+
+        # 2. Microservicio de Pacientes
+        - id: paciente-service
+          uri: http://paciente-service:8082
+          predicates:
+            - Path=/pacientes/**
+
+        # 3. Microservicio de Odontólogos
+        - id: odontologo-service
+          uri: http://odontologo-service:8083
+          predicates:
+            - Path=/odontologos/**
+
+        # 4. Microservicio de Tratamientos
+        - id: tratamientos-service
+          uri: http://tratamientos-service:8084
+          predicates:
+            - Path=/tratamientos/**
+
+        # 5. Microservicio de Citas
+        - id: citas-service
+          uri: http://citas-service:8085
+          predicates:
+            - Path=/citas/**
+
+        # 6. Microservicio de Pagos
+        - id: pagos-service
+          uri: http://pagos-service:8086
+          predicates:
+            - Path=/pagos/**
+
+        # 7. Microservicio de Historial Clínico
+        - id: historial-service
+          uri: http://historial-service:8087
+          predicates:
+            - Path=/historiales/**
+
+        # 8. Microservicio de Insumos
+        - id: insumos-service
+          uri: http://insumos-service:8088
+          predicates:
+            - Path=/insumos/**

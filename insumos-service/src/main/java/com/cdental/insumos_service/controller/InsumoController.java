@@ -26,7 +26,7 @@ import java.util.stream.Collectors;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.*;
 
 @RestController
-@RequestMapping("/api/insumos")
+@RequestMapping("/insumos")
 public class InsumoController {
 
     private final InsumoService service;
@@ -53,6 +53,18 @@ public class InsumoController {
         return ResponseEntity.ok(EntityModel.of(dto,
                 linkTo(methodOn(InsumoController.class).obtenerPorId(id)).withSelfRel(),
                 linkTo(methodOn(InsumoController.class).obtenerTodos()).withRel("insumos")));
+    }
+
+    @GetMapping("/bajo-stock")
+    public ResponseEntity<CollectionModel<EntityModel<InsumoDTO>>> obtenerBajoStock() {
+        List<EntityModel<InsumoDTO>> insumos = service.obtenerBajoStock().stream()
+                .map(dto -> EntityModel.of(dto,
+                        linkTo(methodOn(InsumoController.class).obtenerPorId(dto.getId())).withSelfRel(),
+                        linkTo(methodOn(InsumoController.class).obtenerTodos()).withRel("insumos")))
+                .collect(Collectors.toList());
+
+        return ResponseEntity.ok(CollectionModel.of(insumos,
+                linkTo(methodOn(InsumoController.class).obtenerBajoStock()).withSelfRel()));
     }
 
     @PostMapping

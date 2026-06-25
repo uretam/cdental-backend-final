@@ -11,3 +11,7 @@ spring:
     hibernate:
       ddl-auto: validate
     show-sql: true
+
+# URLs de Feign Clients para entorno local (IDE)
+paciente.service.url: http://localhost:8082/pacientes
+odontologo.service.url: http://localhost:8083/odontologos

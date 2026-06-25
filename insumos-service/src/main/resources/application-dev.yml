@@ -1,9 +1,9 @@
 server:
-  port: 8089
+  port: 8088
 
 spring:
   datasource:
-    url: jdbc:mysql://localhost:33061/db_insumos?createDatabaseIfNotExist=true
+    url: jdbc:mysql://localhost:33068/db_insumos?createDatabaseIfNotExist=true
     username: root
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver

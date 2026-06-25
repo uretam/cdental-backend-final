@@ -40,4 +40,50 @@
             <column name="activo" valueNumeric="1"/>
         </insert>
     </changeSet>
+
+    <changeSet id="3" author="alumno">
+        <insert tableName="historiales">
+            <column name="paciente_id" valueNumeric="2"/>
+            <column name="cita_id" valueNumeric="201"/>
+            <column name="tratamiento_id" valueNumeric="2"/>
+            <column name="observaciones" value="Restauracion realizada exitosamente en pieza 36. Sin sensibilidad post-operatoria."/>
+            <column name="activo" valueNumeric="1"/>
+        </insert>
+        <insert tableName="historiales">
+            <column name="paciente_id" valueNumeric="3"/>
+            <column name="cita_id" valueNumeric="301"/>
+            <column name="tratamiento_id" valueNumeric="3"/>
+            <column name="observaciones" value="Extraccion molar sin complicaciones. Se indica analgesico por 3 dias."/>
+            <column name="activo" valueNumeric="1"/>
+        </insert>
+        <insert tableName="historiales">
+            <column name="paciente_id" valueNumeric="4"/>
+            <column name="cita_id" valueNumeric="401"/>
+            <column name="tratamiento_id" valueNumeric="4"/>
+            <column name="observaciones" value="Primera sesion endodoncia. Conducto preparado hasta lima 40."/>
+            <column name="activo" valueNumeric="1"/>
+        </insert>
+        <insert tableName="historiales">
+            <column name="paciente_id" valueNumeric="5"/>
+            <column name="cita_id" valueNumeric="501"/>
+            <column name="tratamiento_id" valueNumeric="5"/>
+            <column name="observaciones" value="Blanqueamiento sesion 1 completada. Paciente no presenta sensibilidad."/>
+            <column name="activo" valueNumeric="1"/>
+        </insert>
+        <insert tableName="historiales">
+            <column name="paciente_id" valueNumeric="6"/>
+            <column name="cita_id" valueNumeric="601"/>
+            <column name="tratamiento_id" valueNumeric="6"/>
+            <column name="observaciones" value="Control ortodoncia mensual. Se ajustan arcos superior e inferior."/>
+            <column name="activo" valueNumeric="1"/>
+        </insert>
+        <insert tableName="historiales">
+            <column name="paciente_id" valueNumeric="7"/>
+            <column name="cita_id" valueNumeric="701"/>
+            <column name="tratamiento_id" valueNumeric="1"/>
+            <column name="observaciones" value="Evaluacion inicial. Paciente apto para implante. Se programa cirugia."/>
+            <column name="activo" valueNumeric="1"/>
+        </insert>
+    </changeSet>
+
 </databaseChangeLog>

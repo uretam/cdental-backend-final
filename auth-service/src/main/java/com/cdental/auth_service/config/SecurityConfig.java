@@ -16,14 +16,14 @@ public class SecurityConfig {
         http
             // Desactivado CSRF (Las APIs REST usan tokens, no cookies)
             .csrf(csrf -> csrf.disable())
-            // Hace que la sesion sea totalmente sin estado (Stateless)
+            // Sesión totalmente sin estado (Stateless)
             .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-            // Permite el acceso libre a Auth y a las URLs de Swagger
+            // Todos los endpoints de auth-service son accesibles libremente.
+            // La protección JWT de los demás servicios se implementa en el Gateway.
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/auth/**", "/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html").permitAll()
-                .anyRequest().authenticated()
+                .anyRequest().permitAll()
             );
-        
+
         return http.build();
     }
 }

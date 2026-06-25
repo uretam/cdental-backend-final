@@ -10,6 +10,8 @@ import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 
 import org.springframework.hateoas.RepresentationModel;
+
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Data
@@ -24,7 +26,7 @@ public class PagoDTO extends RepresentationModel<PagoDTO> {
 
     @NotNull(message = "El monto del pago es obligatorio")
     @Positive(message = "El monto debe ser un valor positivo")
-    private Double monto;
+    private BigDecimal monto;
 
     @NotBlank(message = "El método de pago es obligatorio (EFECTIVO, TARJETA, TRANSFERENCIA)")
     private String metodoPago;

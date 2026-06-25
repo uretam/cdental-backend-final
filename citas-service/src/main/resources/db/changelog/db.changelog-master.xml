@@ -33,4 +33,44 @@
             <column name="motivo" value="Limpieza dental general y evaluacion"/>
         </insert>
     </changeSet>
+
+    <changeSet id="3" author="alumno">
+        <insert tableName="citas">
+            <column name="paciente_id" valueNumeric="2"/>
+            <column name="odontologo_id" valueNumeric="2"/>
+            <column name="fecha_hora" valueDate="2026-10-16T11:00:00"/>
+            <column name="motivo" value="Restauracion de pieza 36 con resina"/>
+        </insert>
+        <insert tableName="citas">
+            <column name="paciente_id" valueNumeric="3"/>
+            <column name="odontologo_id" valueNumeric="1"/>
+            <column name="fecha_hora" valueDate="2026-10-17T09:30:00"/>
+            <column name="motivo" value="Extraccion de tercer molar inferior derecho"/>
+        </insert>
+        <insert tableName="citas">
+            <column name="paciente_id" valueNumeric="4"/>
+            <column name="odontologo_id" valueNumeric="3"/>
+            <column name="fecha_hora" valueDate="2026-10-18T14:00:00"/>
+            <column name="motivo" value="Tratamiento de conducto pieza 21"/>
+        </insert>
+        <insert tableName="citas">
+            <column name="paciente_id" valueNumeric="5"/>
+            <column name="odontologo_id" valueNumeric="2"/>
+            <column name="fecha_hora" valueDate="2026-10-20T10:00:00"/>
+            <column name="motivo" value="Blanqueamiento dental primera sesion"/>
+        </insert>
+        <insert tableName="citas">
+            <column name="paciente_id" valueNumeric="6"/>
+            <column name="odontologo_id" valueNumeric="1"/>
+            <column name="fecha_hora" valueDate="2026-10-21T15:30:00"/>
+            <column name="motivo" value="Control ortodoncia mensual"/>
+        </insert>
+        <insert tableName="citas">
+            <column name="paciente_id" valueNumeric="7"/>
+            <column name="odontologo_id" valueNumeric="3"/>
+            <column name="fecha_hora" valueDate="2026-10-22T08:00:00"/>
+            <column name="motivo" value="Evaluacion para implante pieza 46"/>
+        </insert>
+    </changeSet>
+
 </databaseChangeLog>

@@ -6,3 +6,7 @@ spring:
     url: jdbc:mysql://db-citas:3306/db_citas
     username: root
     password: root
+
+# URLs de Feign Clients para entorno Docker (nombres de servicio)
+paciente.service.url: http://paciente-service:8082/pacientes
+odontologo.service.url: http://odontologo-service:8083/odontologos

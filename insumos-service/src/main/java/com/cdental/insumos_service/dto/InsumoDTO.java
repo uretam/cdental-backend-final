@@ -32,4 +32,6 @@ public class InsumoDTO extends RepresentationModel<InsumoDTO> {
     private Integer stockMinimo;
 
     private Boolean activo;
+
+    private Boolean necesitaReposicion;
 }

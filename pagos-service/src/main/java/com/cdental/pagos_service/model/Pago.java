@@ -12,6 +12,7 @@ import lombok.Setter;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Entity
@@ -29,7 +30,7 @@ public class Pago {
     private Long historialId;
 
     @Column(nullable = false, columnDefinition = "DECIMAL(10,2)")
-    private Double monto;
+    private BigDecimal monto;
 
     @Column(name = "metodo_pago", nullable = false)
     private String metodoPago;

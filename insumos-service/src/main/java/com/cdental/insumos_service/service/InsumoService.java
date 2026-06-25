@@ -35,6 +35,14 @@ public class InsumoService {
         return convertirADto(insumo);
     }
 
+    public List<InsumoDTO> obtenerBajoStock() {
+        logger.info("Consultando insumos con stock por debajo del nivel mínimo");
+        return repository.findAll().stream()
+                .filter(insumo -> insumo.getStockActual() < insumo.getStockMinimo())
+                .map(this::convertirADto)
+                .collect(Collectors.toList());
+    }
+
     public InsumoDTO crear(InsumoDTO dto) {
         logger.info("Iniciando el registro de un nuevo insumo médico en el stock");
 
@@ -42,9 +50,16 @@ public class InsumoService {
         insumo.setNombre(dto.getNombre());
         insumo.setStockActual(dto.getStockActual());
         insumo.setStockMinimo(dto.getStockMinimo());
-        insumo.setActivo(dto.getActivo());
+        insumo.setActivo(dto.getActivo() != null ? dto.getActivo() : true);
 
-        return convertirADto(repository.save(insumo));
+        InsumoDTO resultado = convertirADto(repository.save(insumo));
+
+        if (insumo.getStockActual() < insumo.getStockMinimo()) {
+            logger.warn("ALERTA DE STOCK: El insumo '{}' fue creado con stock ({}) por debajo del mínimo ({}).",
+                    insumo.getNombre(), insumo.getStockActual(), insumo.getStockMinimo());
+        }
+
+        return resultado;
     }
 
     public InsumoDTO actualizar(Long id, InsumoDTO dto) {
@@ -58,7 +73,14 @@ public class InsumoService {
         insumo.setStockMinimo(dto.getStockMinimo());
         insumo.setActivo(dto.getActivo());
 
-        return convertirADto(repository.save(insumo));
+        InsumoDTO resultado = convertirADto(repository.save(insumo));
+
+        if (insumo.getStockActual() < insumo.getStockMinimo()) {
+            logger.warn("ALERTA DE STOCK: El insumo '{}' (ID: {}) tiene stock ({}) por debajo del mínimo ({}).",
+                    insumo.getNombre(), id, insumo.getStockActual(), insumo.getStockMinimo());
+        }
+
+        return resultado;
     }
 
     public void eliminar(Long id) {
@@ -75,6 +97,7 @@ public class InsumoService {
         dto.setStockActual(i.getStockActual());
         dto.setStockMinimo(i.getStockMinimo());
         dto.setActivo(i.getActivo());
+        dto.setNecesitaReposicion(i.getStockActual() < i.getStockMinimo());
         return dto;
     }
 }
