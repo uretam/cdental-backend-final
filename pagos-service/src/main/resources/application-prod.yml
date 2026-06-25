@@ -1,0 +1,8 @@
+server:
+  port: 8086
+
+spring:
+  datasource:
+    url: jdbc:mysql://db-pagos:3306/db_pagos
+    username: root
+    password: root

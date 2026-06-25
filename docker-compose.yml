@@ -56,16 +56,16 @@ services:
     volumes:
       - vol-citas:/var/lib/mysql
 
-  db-facturas:
+  db-pagos:
     image: mysql:8.0
-    container_name: db-facturas
+    container_name: db-pagos
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: db_facturas
+      MYSQL_DATABASE: db_pagos
     ports:
       - "33066:3306"
     volumes:
-      - vol-facturas:/var/lib/mysql
+      - vol-pagos:/var/lib/mysql
 
   db-historial:
     image: mysql:8.0
@@ -95,6 +95,6 @@ volumes:
   vol-odontologos:
   vol-tratamientos:
   vol-citas:
-  vol-facturas:
+  vol-pagos:
   vol-historial:
   vol-insumos:
