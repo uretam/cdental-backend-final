@@ -3,6 +3,6 @@ server:
 
 spring:
   datasource:
-    url: jdbc:mysql://db-historiales:3306/db_historiales
+    url: jdbc:mysql://db-historial:3306/db_historial
     username: root
     password: root
